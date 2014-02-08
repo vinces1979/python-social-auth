@@ -19,7 +19,7 @@ class PyramidTemplateStrategy(BaseTemplateStrategy):
 class PyramidStrategy(BaseStrategy):
     def redirect(self, url):
         """Return a response redirect to the given URL"""
-        return HTTPFound(location=url)
+        return HTTPFound(location=url, headers=self.request.response.headerlist)
 
     def get_setting(self, name):
         """Return value for given setting name"""
